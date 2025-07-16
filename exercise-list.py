@@ -24,3 +24,7 @@ for task in random_list:
 done_task = random_list.pop(2)
 print("You removed:", done_task)
 print("removed list after removal:", random_list)
+
+
+random_list.insert(1, "Kappa")
+print("After inserting an item:", random_list)
