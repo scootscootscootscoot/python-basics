@@ -29,6 +29,10 @@ long_village_name = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch"
 string_length = len(long_village_name)
 print(string_length)
 
+my_path = ' /c/Users/instructor/Downloads/Submit Relating the Nonrelational Assessment Download May 10, 2021 917 AM '
+my_folders = my_path.strip().split('/')
+print(my_folders)
+
 #5
 composers="Beethoven,Ludwig von;Liszt,Franz;Mozart,Wolfgang;Copland,Aaron"
 # Separate the composers
