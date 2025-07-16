@@ -19,3 +19,8 @@ random_list.append("zeta")
 print("Heres a random list of things")
 for task in random_list:
     print("- ", task)
+
+
+done_task = random_list.pop(2)
+print("You removed:", done_task)
+print("removed list after removal:", random_list)
