@@ -128,9 +128,9 @@ if purchase_history:
         item_price = items[item_name]
         item_total = item_price * quantity
         if quantity == 1:
-            print(f"{item_name.capitalize():<15} x{quantity:<3} ${item_price:.2f}")
+            print(f"{item_name.capitalize} x{quantity:<3} ${item_price:.2f}")
         else:
-            print(f"{item_name.capitalize():<15} x{quantity:<3} ${item_price:.2f} each = ${item_total:.2f}")
+            print(f"{item_name.capitalize} x{quantity:<3} ${item_price:.2f} each = ${item_total:.2f}")
     
     print("-" * 25)
     print(f"Total spent: ${total_spent:.2f}")
