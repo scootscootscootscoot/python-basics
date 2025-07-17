@@ -14,9 +14,15 @@ items = {
 
 user_input = input("How much are you inserting into the machine, good buddy?")
 funds = float(user_input)
-
+initial_funds = funds
 
 ### DISPLAY MENU AND TRANSACTION PROCESS
+
+#Track Purchases
+purchase_history = []
+total_spent = 0.0
+
+
 
 # Transaction loop
 while funds > 0:
@@ -45,6 +51,7 @@ while funds > 0:
         if add_funds == 'y':
             additional = float(input("How much additional money are you inserting, good buddy? $"))
             funds += additional
+            initial_funds += additional
             continue
         else:
             break
@@ -63,6 +70,11 @@ while funds > 0:
     if item_price <= funds:
         # Sufficient funds - process transaction
         funds -= item_price
+        total_spent += item_price
+        # Add to purchase history
+        purchase_history.append({
+            'item': selected_item,
+            'price': item_price})
         print(f"\n{selected_item.capitalize()} dispensed!")
         print(f"Remaining balance: ${funds:.2f}")
         
@@ -84,6 +96,7 @@ while funds > 0:
         if add_more == 'add':
             additional = float(input("How much additional money are you inserting, good buddy? $"))
             funds += additional
+            initial_funds += additional
             print(f"Updated balance: ${funds:.2f}")
         else:
             print("Transaction cancelled.")
@@ -91,7 +104,42 @@ while funds > 0:
 
 
 
-# Final message
-print(f"\nThank you for using the vending machine, good buddy!")
-if funds > 0:
-    print(f"Your remaining balance is ${funds:.2f}")
+#### FINAL MESSAGE
+
+print("\n" + "="*40)
+print("           PURCHASE SUMMARY")
+print("="*40)
+
+if purchase_history:
+    print("Items purchased:")
+    print("-" * 25)
+    
+    # Count quantities of each item
+    item_counts = {}
+    for purchase in purchase_history:
+        item_name = purchase['item']
+        if item_name in item_counts:
+            item_counts[item_name] += 1
+        else:
+            item_counts[item_name] = 1
+    
+    # Display each item with quantity and individual price
+    for item_name, quantity in item_counts.items():
+        item_price = items[item_name]
+        item_total = item_price * quantity
+        if quantity == 1:
+            print(f"{item_name.capitalize():<15} x{quantity:<3} ${item_price:.2f}")
+        else:
+            print(f"{item_name.capitalize():<15} x{quantity:<3} ${item_price:.2f} each = ${item_total:.2f}")
+    
+    print("-" * 25)
+    print(f"Total spent: ${total_spent:.2f}")
+    print(f"Money inserted: ${initial_funds:.2f}")
+    print(f"Change returned: ${funds:.2f}")
+    
+else:
+    print("No items purchased.")
+    print(f"Money returned: ${funds:.2f}")
+
+print("="*40)
+print("Thank you for using the vending machine!")
