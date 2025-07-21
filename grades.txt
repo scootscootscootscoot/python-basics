@@ -1,10 +1,10 @@
 STUDENT GRADE REPORT
 ==================================================
-Name: Billy Boy
+Name: Billy
 Score: 99.0
 Letter Grade: A
 -------------------------
-Name: Billie Jean
+Name: Suzy
 Score: 12.0
 Letter Grade: F
 -------------------------
