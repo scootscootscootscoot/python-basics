@@ -1,0 +1,14 @@
+STUDENT GRADE REPORT
+==================================================
+Name: Billy Boy
+Score: 99.0
+Letter Grade: A
+-------------------------
+Name: Billie Jean
+Score: 12.0
+Letter Grade: F
+-------------------------
+
+CLASS STATISTICS
+Total Students: 2
+Class Average: 55.50 (F)
